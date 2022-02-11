@@ -33,7 +33,7 @@ jobs:
         PORT: ${{ secrets.SSH_PORT }}
         KEY: ${{ secrets.SSH_PRIVATE_KEY }}
         script: |
-          mv /home/deployer/axie-scholarship-manager /var/www/axie-scholarship-manager
+          mv /home/deployer/axie-scholarship-manager /var/www/
           cd /var/www/axie-scholarship-manager
           composer install --no-interaction --prefer-dist --optimize-autoloader --no-dev
           mv .env.demo .env
