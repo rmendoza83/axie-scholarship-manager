@@ -28,4 +28,6 @@ jobs:
         USERNAME: ${{ secrets.SSH_USERNAME }}
         PORT: ${{ secrets.SSH_PORT }}
         KEY: ${{ secrets.SSH_PRIVATE_KEY }}
-        script: ls
+        script: |
+          cd /var/www/
+          ls
