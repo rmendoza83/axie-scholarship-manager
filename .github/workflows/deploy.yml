@@ -1,6 +1,10 @@
 name: Deploy
 
-on: [push]
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
 
 jobs:
   build:
@@ -19,7 +23,7 @@ jobs:
         KEY: ${{ secrets.SSH_PRIVATE_KEY }}
       with:
         source: "."
-        target: "/var/www/axie-scholarship-manager"
+        target: "/home/deployer/axie-scholarship-manager"
 
     - name: Deploy the application into VPS
       uses: appleboy/ssh-action@master
@@ -29,6 +33,7 @@ jobs:
         PORT: ${{ secrets.SSH_PORT }}
         KEY: ${{ secrets.SSH_PRIVATE_KEY }}
         script: |
+          mv /home/deployer/axie-scholarship-manager /var/www/axie-scholarship-manager
           cd /var/www/axie-scholarship-manager
           composer install --no-interaction --prefer-dist --optimize-autoloader --no-dev
           mv .env.demo .env
