@@ -34,6 +34,7 @@ jobs:
         KEY: ${{ secrets.SSH_PRIVATE_KEY }}
         script: |
           rm -R /var/www/axie-scholarship-manager/*
+          ls -la
           cp -r /home/deployer/axie-scholarship-manager/* /var/www/axie-scholarship-manager
           cd /var/www/axie-scholarship-manager
           ls -la
