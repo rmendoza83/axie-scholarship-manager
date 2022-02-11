@@ -42,8 +42,8 @@ jobs:
           php artisan auth:clear-resets
           php artisan route:cache
           php artisan config:cache
+          npm install
           npm ci
           npm run production
           chmod -R go=rx .
           chgrp -R www-data .
-          ls
