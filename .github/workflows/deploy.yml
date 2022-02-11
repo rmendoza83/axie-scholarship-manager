@@ -36,7 +36,7 @@ jobs:
           mv /home/deployer/axie-scholarship-manager/* /var/www/axie-scholarship-manager
           cd /var/www/axie-scholarship-manager
           composer install --no-interaction --prefer-dist --optimize-autoloader --no-dev
-          mv .env.demo .env
+          cp .env.demo .env
           php artisan migrate:fresh
           php artisan cache:clear
           php artisan auth:clear-resets
