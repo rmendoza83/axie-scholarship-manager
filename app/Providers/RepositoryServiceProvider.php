@@ -14,6 +14,7 @@ use App\Repositories\ClaimSlpRepositoryInterface;
 use App\Repositories\PaymentRepositoryInterface;
 use App\Repositories\ProfileRepositoryInterface;
 use App\Repositories\UserRepositoryInterface;
+use App\Repositories\RoninDemoDataRepositoryInterface;
 // Repositories
 use App\Repositories\BaseRepository;
 use App\Repositories\TeamRepository;
@@ -25,6 +26,7 @@ use App\Repositories\ClaimSlpRepository;
 use App\Repositories\PaymentRepository;
 use App\Repositories\ProfileRepository;
 use App\Repositories\UserRepository;
+use App\Repositories\RoninDemoDataRepository;
 
 class RepositoryServiceProvider extends ServiceProvider
 {
@@ -45,6 +47,7 @@ class RepositoryServiceProvider extends ServiceProvider
         $this->app->bind(PaymentRepositoryInterface::class, PaymentRepository::class);
         $this->app->bind(ProfileRepositoryInterface::class, ProfileRepository::class);
         $this->app->bind(UserRepositoryInterface::class, UserRepository::class);
+        $this->app->bind(RoninDemoDataRepositoryInterface::class, RoninDemoDataRepository::class);
     }
 
     /**
