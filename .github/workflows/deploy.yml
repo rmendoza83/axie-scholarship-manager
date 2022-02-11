@@ -36,8 +36,10 @@ jobs:
           rm -R /var/www/axie-scholarship-manager/*
           cp -r /home/deployer/axie-scholarship-manager/* /var/www/axie-scholarship-manager
           cd /var/www/axie-scholarship-manager
+          ls -la
           composer install --no-interaction --prefer-dist --optimize-autoloader --no-dev
           cp -r .env.demo .env
+          ls -la
           php artisan migrate:fresh
           php artisan cache:clear
           php artisan auth:clear-resets
