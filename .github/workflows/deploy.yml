@@ -34,7 +34,7 @@ jobs:
         KEY: ${{ secrets.SSH_PRIVATE_KEY }}
         script: |
           rm -R /var/www/axie-scholarship-manager/*
-          mv /home/deployer/axie-scholarship-manager/* /var/www/axie-scholarship-manager
+          cp -r /home/deployer/axie-scholarship-manager/* /var/www/axie-scholarship-manager
           cd /var/www/axie-scholarship-manager
           composer install --no-interaction --prefer-dist --optimize-autoloader --no-dev
           cp .env.demo .env
