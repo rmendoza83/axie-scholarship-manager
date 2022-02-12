@@ -1,0 +1,25 @@
+// Fonts
+@import url('https://fonts.googleapis.com/css?family=Nunito');
+
+// Variables
+@import 'variables';
+
+// Bootstrap
+@import '~bootstrap/scss/bootstrap';
+
+// Loading Library Styles
+@import '~primevue/resources/themes/arya-blue/theme.css';
+@import '~primevue/resources/primevue.min.css';
+@import '~primeicons/primeicons.css';
+@import '~@fortawesome/fontawesome-free/scss/fontawesome';
+@import '~@fortawesome/fontawesome-free/scss/brands';
+@import '~@fortawesome/fontawesome-free/scss/solid';
+@import '~@fortawesome/fontawesome-free/scss/regular';
+
+/*
+// Snotify
+@import '~vue-snotify/styles/material.css'; // or dark.css or simple.css
+
+@import '~vue-material/dist/vue-material.min.css';
+@import '~vue-material/dist/theme/default.css';
+*/

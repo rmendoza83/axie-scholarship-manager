@@ -3,20 +3,19 @@ import "./bootstrap";
 import { createApp } from "vue";
 import router from './router';
 import filter from './filter';
+
+// PrimeVue Imports
 import PrimeVue from 'primevue/config';
+import DataTable from 'primevue/datatable';
+import Column from 'primevue/column';
 
-//import Welcome from "./components/Welcome.vue";
-
-const app = createApp({
-    el: '#app',
-    router
-});
+const app = createApp({});
 
 // Custom Filters (Like Pipes in AngularJS)
-// app.config.globalProperties.$filters = filter;
+app.config.globalProperties.$filters = filter;
 
-app.use(PrimeVue, );
+app.use(PrimeVue);
+app.component('DataTable', DataTable);
+app.component('Column', Column);
 
-console.log(app);
-
-app.mount('#app');
+app.use(router).mount('#app');
