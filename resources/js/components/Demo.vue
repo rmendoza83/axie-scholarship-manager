@@ -72,7 +72,7 @@ import { DemoService } from "../services/demo/demo.service";
 import { timer } from "rxjs";
 
 export default class DemoComponent extends Vue {
-  timeRefresher = 10000;
+  timeRefresher = 300000;
   private demoService: DemoService;
   private axieData: any[] = [];
   private loading: boolean = false;
