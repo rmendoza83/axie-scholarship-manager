@@ -46,6 +46,7 @@ jobs:
           npm install
           npm ci
           npm run production
-          chmod -R go=rx .
+          chmod -R g=rwx .
+          chmod -R o=rx .
           chgrp -R www-data .
           ls -la
