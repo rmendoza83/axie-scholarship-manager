@@ -7,6 +7,7 @@ import { HTTP_CONSTANTS } from '../../constants/http-constants';
 export abstract class HTTPBaseService {
   private axiosInstance: Axios;
   protected readonly serverAPIURL: string = 'https://axie-manager.sophie-ware.com/api/';
+  //protected readonly serverAPIURL: string = 'http://localhost:8000/api/';
   protected moduleName: string = '';
   protected serviceName: string = '';
   protected extendedServiceData: string = '';
