@@ -39,6 +39,7 @@ jobs:
           composer install --no-interaction --prefer-dist --optimize-autoloader --no-dev
           cp -r .env.demo .env
           php artisan migrate:fresh
+          php artisan config:clear
           php artisan cache:clear
           php artisan auth:clear-resets
           php artisan route:cache
