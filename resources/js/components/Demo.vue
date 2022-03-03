@@ -39,7 +39,6 @@
             <span class="px-1">
               {{ slotProps.data.win_rate }}
             </span>
-            <i class="fa-solid fa-trophy fa-xs"></i>
           </div>
         </template>
       </Column>
