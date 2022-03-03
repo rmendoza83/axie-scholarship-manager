@@ -29,6 +29,21 @@
         </template>
       </Column>
       <Column
+        field="win_rate"
+        header="Win Rate"
+        :sortable="true"
+        headerClass="header-right"
+      >
+        <template #body="slotProps">
+          <div class="d-flex flex-row justify-content-end align-items-center">
+            <span class="px-1">
+              {{ slotProps.data.win_rate }}
+            </span>
+            <i class="fa-solid fa-trophy fa-xs"></i>
+          </div>
+        </template>
+      </Column>
+      <Column
         field="rank"
         header="General Ranking"
         headerClass="header-right"
@@ -37,6 +52,18 @@
         <template #body="slotProps">
           <div class="d-flex justify-content-end">
             <span>{{ $filters.formatInteger(slotProps.data.rank) }}</span>
+          </div>
+        </template>
+      </Column>
+      <Column
+        field="today_slp"
+        header="SLP Hoy"
+        headerClass="header-right"
+        :sortable="true"
+      >
+        <template #body="slotProps">
+          <div class="d-flex justify-content-end">
+            <span>{{ $filters.formatInteger(slotProps.data.today_slp) }}</span>
           </div>
         </template>
       </Column>
@@ -86,6 +113,7 @@ export default class DemoComponent extends Vue {
   private getAxieData() {
     this.loading = true;
     this.demoService.getAxieData().subscribe((response) => {
+      console.log(response.data);
       this.axieData = response.data.data;
       this.loading = false;
     });

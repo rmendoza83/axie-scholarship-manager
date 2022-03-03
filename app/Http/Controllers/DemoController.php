@@ -49,31 +49,34 @@ class DemoController extends Controller
         return $axieData->toArray();
     }
 
-    private function parseFromTrackerAxieManagement(string $bodyData, $id)
+    private function parseFromTrackerAxieManagement(string $bodyData, $ronin)
     {
         $parsedData = json_decode($bodyData, true);
+        $name = strlen(trim($parsedData['name'])) > 0 ? $parsedData['name'] : $ronin['name'];
         return [
-            'id' => $id,
-            'name' => $parsedData['name'],
+            'id' => $ronin['ronin_address'],
+            'name' => $name,
             'mmr' => $parsedData['elo'],
             'rank' => $parsedData['rank'],
-            'total_slp' => $parsedData['slp']['total']
+            'win_rate' => $parsedData['winRate'] . '%',
+            'total_slp' => $parsedData['slp']['total'],
+            'today_slp' => $parsedData['slp']['today'],
         ];
     }
 
     private function getDataFromTrackerAxieManagement(Collection $roninData)
     {
-        $api_url = env('TRACKER_AXIE_MANAGEMENT_API_URL');
+        $api_url = env('TRACKER_AXIE_MANAGEMENT_API_URL', 'https://api.axie.management/v1/stats/');
         $headers = [
             'content-type' => 'application/json',
             'origin' => 'https://tracker.axie.management'
         ];
         $data = [
-            'oauth' => env('OAUTH_KEY')
+            'oauth' => env('OAUTH_KEY', '5knhmutm3FZpk8irmQ2AP6WXfHA3')
         ];
         $axieData = collect([]);
         foreach ($roninData as $ronin) {
-            $url = $api_url . $ronin;
+            $url = $api_url . $ronin['ronin_address'];
             try {
                 $response = Http::withHeaders($headers)
                     ->post($url, $data);
@@ -92,7 +95,10 @@ class DemoController extends Controller
     public function index(Request $request)
     {
         $ronindata = $this->roninDemoData->getList()->map(function ($roninItem) {
-            return "0x{$roninItem->ronin_id}";
+            return [
+                'ronin_address' => "0x{$roninItem->ronin_id}",
+                'name' => $roninItem->name
+            ];
         });
         $axieData = $this->getDataFromTrackerAxieManagement($ronindata);
         $bodyResult = [
