@@ -32,10 +32,10 @@ return new class extends Migration
                 'ronin_id' => 'e94fd04b4a7e23cb9d246a03efb737beb43f0fdc',
                 'name' => 'Martinelli'
             ],
-            // Martinelli 2
+            // Ander
             [
                 'ronin_id' => '52795ab058babaa0038171a40f77d0483994ae58',
-                'name' => 'Martinelli 2'
+                'name' => 'Ander'
             ],
             // Rony
             [
@@ -47,30 +47,30 @@ return new class extends Migration
                 'ronin_id' => '83843640a8dc7b0008ef13e3bf3b763d52627d32',
                 'name' => 'Ronito'
             ],
-            // Ryan
+            // Jesus Alberto
             [
                 'ronin_id' => 'f721b079c6edd406a037a848de426c128bfcd7f6',
-                'name' => 'Ryan'
+                'name' => 'Jesus Alberto'
             ],
             // Edixon
             [
                 'ronin_id' => '24c52ebf3baf06b92c0cc6462ed991f73f92f72a',
                 'name' => 'Edixon'
             ],
-            // Bubu
+            // Gabriel
             [
                 'ronin_id' => '10b1bc58f09165d158d81e847cf8d6210c50b3e7',
-                'name' => 'Bubu'
+                'name' => 'Gabriel'
             ],
             // Ylam
             [
                 'ronin_id' => '35fb35c96c262c96504467b9b59fbac7ca8d4b68',
                 'name' => 'Ylam'
             ],
-            // Deivi
+            // Tefy
             [
                 'ronin_id' => 'e65447c887d225f9d526687487673132679319b2',
-                'name' => 'Deivi'
+                'name' => 'Tefy'
             ],
             // Salvador
             [
@@ -107,10 +107,10 @@ return new class extends Migration
                 'ronin_id' => 'f436623273d5c95f66d6012f44323dea357d29ba',
                 'name' => 'Raiden'
             ],
-            // Lucas
+            // Joaquin
             [
                 'ronin_id' => '6a8b7f2730961d5e296c656bb25e51af19039717',
-                'name' => 'Lucas'
+                'name' => 'Joaquin'
             ],
             // Richard
             [
