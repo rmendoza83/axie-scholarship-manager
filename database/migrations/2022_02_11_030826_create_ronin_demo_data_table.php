@@ -57,10 +57,10 @@ return new class extends Migration
         'ronin_id' => '24c52ebf3baf06b92c0cc6462ed991f73f92f72a',
         'name' => 'Edixon'
       ],
-      // Gabriel
+      // Maria Fuentes
       [
         'ronin_id' => '10b1bc58f09165d158d81e847cf8d6210c50b3e7',
-        'name' => 'Gabriel'
+        'name' => 'Maria Fuentes'
       ],
       // Ylam
       [
@@ -126,6 +126,11 @@ return new class extends Migration
       [
         'ronin_id' => '157f7e8cfb55f3b9b70089fbd89774e59ebe69a7',
         'name' => 'Rosmeri'
+      ],
+      // Argenis Acosta
+      [
+        'ronin_id' => '70de1375038a47f287f76c6ca40be86e83094858',
+        'name' => 'Argenis'
       ],
     ]);
   }
