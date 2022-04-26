@@ -122,10 +122,10 @@ return new class extends Migration
         'ronin_id' => '38ee95f125e6ad9de4421e3c4d0d65cae352fb8e',
         'name' => 'Maria Victoria'
       ],
-      // Rosmeri Jimenez
+      // Argenis Acosta II
       [
         'ronin_id' => '157f7e8cfb55f3b9b70089fbd89774e59ebe69a7',
-        'name' => 'Rosmeri'
+        'name' => 'Argenis II'
       ],
       // Argenis Acosta
       [
