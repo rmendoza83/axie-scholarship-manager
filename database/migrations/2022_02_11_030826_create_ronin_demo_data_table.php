@@ -57,10 +57,10 @@ return new class extends Migration
         'ronin_id' => '24c52ebf3baf06b92c0cc6462ed991f73f92f72a',
         'name' => 'Edixon'
       ],
-      // Maria Fuentes
+      // Ander II
       [
         'ronin_id' => '10b1bc58f09165d158d81e847cf8d6210c50b3e7',
-        'name' => 'Maria Fuentes'
+        'name' => 'Ander II'
       ],
       // Ylam
       [
@@ -92,10 +92,10 @@ return new class extends Migration
         'ronin_id' => 'a5b4059bafdb47f60258404671c0cda8485b1437',
         'name' => 'Nacho'
       ],
-      // Heber
+      // Miguel Angel
       [
         'ronin_id' => 'ddaf3ad3278d5018f3274451244045f122294144',
-        'name' => 'Heber'
+        'name' => 'Miguel Angel'
       ],
       // Ronny
       [
