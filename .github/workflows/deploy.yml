@@ -34,7 +34,7 @@ jobs:
           script: |
             cd /var/www/axie-scholarship-manager
             php artisan down
-            rm -R *
+            sudo rm -R *
             cp -r /home/deployer/axie-scholarship-manager/. .
             composer install --no-interaction --prefer-dist --optimize-autoloader --no-dev
             cp -r .env.demo .env
@@ -47,7 +47,7 @@ jobs:
             npm install
             npm ci
             npm run build
-            chmod -R g=rwx .
-            chmod -R o=rx .
-            chgrp -R www-data .
+            sudo chmod -R g=rwx .
+            sudo chmod -R o=rx .
+            sudo chgrp -R www-data .
             ls -la
