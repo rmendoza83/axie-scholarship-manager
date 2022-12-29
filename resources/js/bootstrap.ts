@@ -1,6 +1,8 @@
 import 'bootstrap';
-import Popper from '@popperjs/core';
+import { createPopper } from '@popperjs/core';
 import { Axios } from 'axios-observable';
+import _ from 'lodash';
+import $ from 'jquery';
 
 declare global {
   // Extending the DOM Window Interface
@@ -18,9 +20,9 @@ declare global {
 }
 
 declare var window: Window;
-window._ = require('lodash');
-window.$ = require('jquery');
-window.Popper = Popper;
+window._ = _;
+window.$ = $;
+window.Popper = createPopper;
 window.axios = Axios;
 window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 

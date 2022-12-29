@@ -93,20 +93,17 @@
 
 <script lang="ts">
 import { Vue } from "vue-class-component";
-//import { Prop } from "vue-property-decorator";
 import { DemoService } from "../services/demo/demo.service";
 import { timer } from "rxjs";
 
 export default class DemoComponent extends Vue {
   timeRefresher = 300000;
-  private demoService: DemoService;
+  private demoService: DemoService = new DemoService();
   private axieData: any[] = [];
   private loading: boolean = false;
   private refresher = timer(this.timeRefresher, this.timeRefresher);
 
   created() {
-    this.demoService = new DemoService();
-    this.axieData = [];
   }
 
   private getAxieData() {

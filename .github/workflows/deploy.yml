@@ -2,52 +2,51 @@ name: Deploy
 
 on:
   push:
-    branches: [ master ]
+    branches: [master]
   pull_request:
-    branches: [ master ]
+    branches: [master]
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v1
+      - uses: actions/checkout@v1
 
-    - name: Copy repository contents via scp
-      uses: appleboy/scp-action@master
-      env:
-        HOST: ${{ secrets.SSH_HOST }}
-        USERNAME: ${{ secrets.SSH_USERNAME }}
-        PORT: ${{ secrets.SSH_PORT }}
-        KEY: ${{ secrets.SSH_PRIVATE_KEY }}
-      with:
-        source: "."
-        target: "/home/deployer/axie-scholarship-manager"
+      - name: Copy repository contents via scp
+        uses: appleboy/scp-action@master
+        env:
+          HOST: ${{ secrets.SSH_HOST }}
+          USERNAME: ${{ secrets.SSH_USERNAME }}
+          PORT: ${{ secrets.SSH_PORT }}
+          KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+        with:
+          source: "."
+          target: "/home/deployer/axie-scholarship-manager"
 
-    - name: Deploy the application into VPS
-      uses: appleboy/ssh-action@master
-      with:
-        host: ${{ secrets.SSH_HOST }}
-        USERNAME: ${{ secrets.SSH_USERNAME }}
-        PORT: ${{ secrets.SSH_PORT }}
-        KEY: ${{ secrets.SSH_PRIVATE_KEY }}
-        script: |
-          rm -R /var/www/axie-scholarship-manager/*
-          cp -r /home/deployer/axie-scholarship-manager/. /var/www/axie-scholarship-manager
-          cd /var/www/axie-scholarship-manager
-          composer install --no-interaction --prefer-dist --optimize-autoloader --no-dev
-          cp -r .env.demo .env
-          php artisan migrate:fresh
-          php artisan config:clear
-          php artisan cache:clear
-          php artisan auth:clear-resets
-          php artisan route:cache
-          php artisan config:cache
-          npm install
-          npm ci
-          npm run production
-          chmod -R g=rwx .
-          chmod -R o=rx .
-          chgrp -R www-data .
-          ls -la
+      - name: Deploy the application into VPS
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          USERNAME: ${{ secrets.SSH_USERNAME }}
+          PORT: ${{ secrets.SSH_PORT }}
+          KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+          script: |
+            rm -R /var/www/axie-scholarship-manager/*
+            cp -r /home/deployer/axie-scholarship-manager/. /var/www/axie-scholarship-manager
+            cd /var/www/axie-scholarship-manager
+            composer install --no-interaction --prefer-dist --optimize-autoloader --no-dev
+            cp -r .env.demo .env
+            php artisan migrate:fresh
+            php artisan config:clear
+            php artisan cache:clear
+            php artisan auth:clear-resets
+            php artisan route:cache
+            php artisan config:cache
+            npm install
+            npm ci
+            npm run build
+            chmod -R g=rwx .
+            chmod -R o=rx .
+            chgrp -R www-data .
+            ls -la
