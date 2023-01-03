@@ -22,7 +22,7 @@ jobs:
           KEY: ${{ secrets.SSH_PRIVATE_KEY }}
         with:
           source: "."
-          target: "/home/deployer/axie-scholarship-manager"
+          target: "/home/deployer/deployment/axie-scholarship-manager"
 
       - name: Deploy the application into VPS
         uses: appleboy/ssh-action@master
@@ -32,22 +32,4 @@ jobs:
           PORT: ${{ secrets.SSH_PORT }}
           KEY: ${{ secrets.SSH_PRIVATE_KEY }}
           script: |
-            cd /var/www/axie-scholarship-manager
-            php artisan down
-            sudo rm -R *
-            cp -r /home/deployer/axie-scholarship-manager/. .
-            composer install --no-interaction --prefer-dist --optimize-autoloader --no-dev
-            cp -r .env.demo .env
-            php artisan migrate:fresh
-            php artisan config:clear
-            php artisan cache:clear
-            php artisan auth:clear-resets
-            php artisan route:cache
-            php artisan config:cache
-            npm install
-            npm ci
-            npm run build
-            sudo chmod -R g=rwx .
-            sudo chmod -R o=rx .
-            sudo chgrp -R www-data .
-            ls -la
+            ./deploy/axie-scholarship-manager/deploy.sh
